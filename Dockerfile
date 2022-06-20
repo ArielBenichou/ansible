@@ -19,4 +19,4 @@ WORKDIR /home/theuser
 
 FROM theuser
 COPY . .
-CMD ["bash"]
+CMD ["sh", "-c", "ansible-playbook $TAGS local.yml"]
