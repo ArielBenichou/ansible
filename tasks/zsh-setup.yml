@@ -4,6 +4,7 @@
 
 - name: Change shell to zsh
   shell: chsh -s $(which zsh)
+  become: true
   tags: *tags_for_zsh_tasks
 
 - name: Check stat on .oh-my-zsh 
