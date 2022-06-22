@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+if id arielbenichou &> /dev/null; then
+    echo 'user arielbenichou found'
+else
+    echo 'user arielbenichou not found. creating'
+    sudo adduser arielbenichou
+    sudo usermod -aG sudo arielbenichou 
+    su - arielbenichou
+fi
