@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if id arielbenichou &>/dev/null; then
+if id arielbenichou &> /dev/null; then
     echo 'user arielbenichou found'
 else
     echo 'user arielbenichou not found. creating'
@@ -13,4 +13,4 @@ sudo apt-get update -y
 sudo apt-get install -y curl git software-properties-common ansible
 
 ## pull ansible
-sudo ansible-pull -U https://github.com/ArielBenichou/ansible.git
+# sudo ansible-pull --ask-vault-pass -U https://github.com/ArielBenichou/ansible.git
