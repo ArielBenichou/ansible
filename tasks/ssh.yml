@@ -3,32 +3,27 @@
     dest: "{{ dest_key | dirname }}"
     mode: 0700
     state: directory
-  tags:
-    - dotfiles
-    - install
-    - ssh
+  tags: &tags_for_ssh_tasks ['dotfiles', 'install', 'ssh']
 - name: Install ssh key
   copy:
     src: "{{ source_key }}"
     dest: "{{ dest_key }}"
     mode: 0600
-  tags:
-    - dotfiles
-    - install
-    - ssh
+  tags: *tags_for_ssh_tasks
 - name: Install ssh key public
   copy:
     src: "{{ source_key }}.pub"
     dest: "{{ dest_key }}.pub"
     mode: 0644
-  tags:
-    - dotfiles
-    - install
-    - ssh
+  tags: *tags_for_ssh_tasks
 - name: Set authorized key took from file
   authorized_key:
     user: "{{ lookup('env', 'USER') }}"
     state: present
-    key: "{{ lookup('file', lookup('env', 'HOME') + '/.ssh/id_ed25519.pub') }}"
-  with_fileglob:
-  - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_ed25519.pub') }}"
+  tags: *tags_for_ssh_tasks
+# - name: Evaluating the authentication agent & adding the key...
+#     shell: |
+#       eval "$(ssh-agent)"
+#       ssh-add ~/.ssh/id_ed25519
+#     tags: *tags_for_ssh_tasks

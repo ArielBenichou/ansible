@@ -20,3 +20,9 @@ When new computer dont forget to:
 ```sh
 ssh-add ~/.ssh/id_ed25519
 ```
+
+## TODO
+- make npm and node work - with the PATH working
+- make the dotfile clone with ssh works (ssh-add ssh-agent)
+- remove old file before stowing
+- neovim / vim

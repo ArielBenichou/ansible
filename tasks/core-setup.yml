@@ -6,10 +6,19 @@
     - install
     - core
 
-- name: Install System Packages 2 (the rest)
+- name: Install System Packages 2 (jq)
+  become: true
+  apt:
+    name: [ "jq" ]
+  tags:
+    - install
+    - core
+
+- name: Install System Packages 3 (the rest)
   become: true
   apt:
     name: [ "curl", "htop" ]
   tags:
     - install
     - core
+
