@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
-
+if id arielbenichou &>/dev/null; then
+    echo 'user arielbenichou found'
+else
+    echo 'user arielbenichou not found. creating'
+    sudo adduser arielbenichou
+    sudo usermod -aG sudo arielbenichou 
+    su - arielbenichou
+fi
 ## Install ansible
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update -y
