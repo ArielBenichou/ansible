@@ -13,4 +13,7 @@ sudo apt-get update -y
 sudo apt-get install -y curl git software-properties-common ansible
 
 ## pull ansible
-# sudo ansible-pull --ask-vault-pass -U https://github.com/ArielBenichou/ansible.git
+printf "use:"
+printf "\tsudo ansible-pull --ask-vault-pass -U https://github.com/ArielBenichou/ansible.git"
+printf "or git clone:"
+printf "\tgit clone https://github.com/ArielBenichou/ansible.git"
